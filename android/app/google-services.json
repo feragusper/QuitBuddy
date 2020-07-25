@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "968095722456",
+    "firebase_url": "https://quit-buddy.firebaseio.com",
+    "project_id": "quit-buddy",
+    "storage_bucket": "quit-buddy.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:968095722456:android:e09b7894b6b23636a8a0ad",
+        "android_client_info": {
+          "package_name": "com.feragusper.QuitBuddy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "968095722456-f1d40qvijuj19gsr65dbkjqlpr5kbr4p.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.feragusper.QuitBuddy",
+            "certificate_hash": "156029d91e482de69f1f078ce1307132bed0eee9"
+          }
+        },
+        {
+          "client_id": "968095722456-nrn8dh4uqkms9faukfiosbvc6kf2nfm4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAvCcEU7ulCYuf-eOguFWNW1y1OxoOijfk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "968095722456-nrn8dh4uqkms9faukfiosbvc6kf2nfm4.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "968095722456-el0lhu1fu3911ohi27tqpbsfa8kt21hp.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.feragusper.QuitBuddy"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

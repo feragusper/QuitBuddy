@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>968095722456-el0lhu1fu3911ohi27tqpbsfa8kt21hp.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.968095722456-el0lhu1fu3911ohi27tqpbsfa8kt21hp</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBSIyI2-KCarYfCtTMGpbQfdNKfTfVzt-w</string>
+	<key>GCM_SENDER_ID</key>
+	<string>968095722456</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.feragusper.QuitBuddy</string>
+	<key>PROJECT_ID</key>
+	<string>quit-buddy</string>
+	<key>STORAGE_BUCKET</key>
+	<string>quit-buddy.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:968095722456:ios:67d0d0baa2558bb8a8a0ad</string>
+	<key>DATABASE_URL</key>
+	<string>https://quit-buddy.firebaseio.com</string>
+</dict>
+</plist>
