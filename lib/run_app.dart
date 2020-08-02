@@ -68,7 +68,6 @@ class QuitBuddyApp extends StatelessWidget {
                 return smokesBloc..add(LoadSmokes());
               }),
               BlocProvider<StatsBloc>(
-//                create: (context) => StatsBloc(smokesBloc: smokesBloc..add(LoadSmokes())),
                 create: (context) => StatsBloc(smokesBloc: smokesBloc),
               ),
               BlocProvider<SecurityBloc>(

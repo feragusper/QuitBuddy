@@ -13,6 +13,18 @@ jobs:
         with:
           flutter-version: '1.20.0-7.2.pre'
           channel: 'beta'
-      - run: flutter pub get
-      - run: flutter build appbundle --debug
-#      - run: flutter web
+      - name: Upgrades flutter
+        run: flutter upgrade
+        working-directory: ./working_dir
+      - name: Enable Web
+        run: flutter config --enable-web
+        working-directory: ./working_dir
+      - name: Install dependencies
+        run: flutter packages get
+        working-directory: ./working_dir
+      - name: Build Web
+        run: flutter build web
+        working-directory: ./working_dir
+      - name: Build Android Bundle
+        run: flutter build appbundle --debug
+        working-directory: ./working_dir
