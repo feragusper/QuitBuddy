@@ -15,4 +15,4 @@ jobs:
           channel: 'beta'
       - run: flutter pub get
       - run: flutter build appbundle --debug
-      - run: flutter web
+#      - run: flutter web
