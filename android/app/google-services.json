@@ -15,11 +15,19 @@
       },
       "oauth_client": [
         {
-          "client_id": "968095722456-f1d40qvijuj19gsr65dbkjqlpr5kbr4p.apps.googleusercontent.com",
+          "client_id": "968095722456-5tjupcrcd2o6uj7kp6l1oo0u7hs40ljn.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.feragusper.QuitBuddy",
             "certificate_hash": "156029d91e482de69f1f078ce1307132bed0eee9"
+          }
+        },
+        {
+          "client_id": "968095722456-34umm84544ftq745ue6msf2v2v5acf9q.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.feragusper.QuitBuddy",
+            "certificate_hash": "b7d2cf7f7807310a60050cff86328b65523b7f3c"
           }
         },
         {
