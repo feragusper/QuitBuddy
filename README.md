@@ -31,11 +31,14 @@ This project was build using Flutter
 Release
 -------
 
-In order to make an Android release build it's necessary to:
+In order to make an Android release build:
  - Create a signature in android/buildsystem/key.jks
  - Create a properties file in andrid/buildsystem/key.properties with the values storePassword, keyPassword, keyAlias, storeFile
  - Change the version by modifying the version property in pubspec.yml (versionName+versionCode)
  - Run flutter build appbundle
+
+In order to test web builds:
+ - flutter run -d chrome --web-hostname localhost --web-port 7357
 
 Architecture
 ------------

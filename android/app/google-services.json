@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "968095722456-8c0to3o8f9go6jijtfpa2nbf4bga8c4c.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.feragusper.QuitBuddy",
+            "certificate_hash": "e1fca407cefe9c1ba726f67d2dd987a5db531b37"
+          }
+        },
+        {
           "client_id": "968095722456-5tjupcrcd2o6uj7kp6l1oo0u7hs40ljn.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
