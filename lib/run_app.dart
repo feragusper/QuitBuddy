@@ -28,14 +28,21 @@ void runBlocLibraryApp() {
   runApp(QuitBuddyApp());
 }
 
-class QuitBuddyApp extends StatelessWidget {
-  var smokesBloc;
+class QuitBuddyApp extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return QuitBuddyAppState();
+  }
+}
+
+class QuitBuddyAppState extends State {
   var firebaseUserRepository;
+  var firestoreReactiveSmokesRepository;
 
   @override
   Widget build(BuildContext context) {
     firebaseUserRepository = FirebaseUserRepository(FirebaseAuth.instance);
-    smokesBloc = SmokesBloc(smokesRepository: FirestoreReactiveSmokesRepository(Firestore.instance));
+    firestoreReactiveSmokesRepository = FirestoreReactiveSmokesRepository(Firestore.instance);
 
     return MaterialApp(
       onGenerateTitle: (context) => FlutterBlocLocalizations.of(context).appTitle,
@@ -56,6 +63,7 @@ class QuitBuddyApp extends StatelessWidget {
           );
         },
         ArchRoutes.home: (context) {
+          final smokesBloc = SmokesBloc(smokesRepository: firestoreReactiveSmokesRepository);
           return MultiBlocProvider(
             providers: [
               BlocProvider<TabBloc>(
