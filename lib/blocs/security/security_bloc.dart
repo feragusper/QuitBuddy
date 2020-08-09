@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:QuitBuddy/models/session.dart';
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 
@@ -53,6 +54,7 @@ class SecurityBloc extends Bloc<SecurityEvent, SecurityState> {
   Stream<SecurityState> _mapLogoutToState() async* {
     try {
       await userRepository.logout();
+      Session.instance.clear();
       yield LoggedOut();
     } catch (_) {
       yield LoggedIn();

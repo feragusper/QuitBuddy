@@ -30,12 +30,12 @@ void runBlocLibraryApp() {
 
 class QuitBuddyApp extends StatelessWidget {
   var smokesBloc;
-  var securityBloc;
+  var firebaseUserRepository;
 
   @override
   Widget build(BuildContext context) {
+    firebaseUserRepository = FirebaseUserRepository(FirebaseAuth.instance);
     smokesBloc = SmokesBloc(smokesRepository: FirestoreReactiveSmokesRepository(Firestore.instance));
-    securityBloc = SecurityBloc(userRepository: FirebaseUserRepository(FirebaseAuth.instance));
 
     return MaterialApp(
       onGenerateTitle: (context) => FlutterBlocLocalizations.of(context).appTitle,
@@ -49,7 +49,7 @@ class QuitBuddyApp extends StatelessWidget {
           return MultiBlocProvider(
             providers: [
               BlocProvider<SecurityBloc>(
-                create: (context) => securityBloc,
+                create: (context) => SecurityBloc(userRepository: firebaseUserRepository),
               ),
             ],
             child: LoginScreen(),
@@ -71,7 +71,7 @@ class QuitBuddyApp extends StatelessWidget {
                 create: (context) => StatsBloc(smokesBloc: smokesBloc),
               ),
               BlocProvider<SecurityBloc>(
-                create: (context) => securityBloc,
+                create: (context) => SecurityBloc(userRepository: firebaseUserRepository),
               ),
             ],
             child: HomeScreen(),

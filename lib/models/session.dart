@@ -10,4 +10,8 @@ class Session {
   void setUserEntity(UserEntity userEntity) {
     this.userEntity = userEntity;
   }
+
+  void clear() {
+    this.userEntity = null;
+  }
 }
