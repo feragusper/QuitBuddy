@@ -1,5 +1,5 @@
 on: push
-name: Build
+name: Build Android & Web
 jobs:
   build:
     name: Build Android & Web
