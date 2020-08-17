@@ -33,16 +33,13 @@ class SmokesBloc extends Bloc<SmokesEvent, SmokesState> {
 
   Stream<SmokesState> _mapLoadSmokesToState() async* {
     try {
-      debugPrint("SmokesBloc _mapLoadSmokesToState");
       final monthlySmokes = await smokesRepository.monthlySmokes();
       final dailySmokes = await smokesRepository.dailySmokes();
-      debugPrint("SmokesBloc _mapLoadSmokesToState: monthlySmokes = " + monthlySmokes.toString() + "dailySmokes = " + dailySmokes.toString());
       yield SmokesLoaded(
         monthlySmokes.map(Smoke.fromEntity).toList(),
         dailySmokes.map(Smoke.fromEntity).toList(),
       );
     } catch (e) {
-      debugPrint("SmokesNotLoaded bc: " + e.toString());
       yield SmokesNotLoaded();
     }
   }

@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 import '../models/smoke.dart';
 import '../smokes_app_core/src/keys.dart';
@@ -27,20 +28,18 @@ class SmokeItem extends StatelessWidget {
           child: Container(
             width: MediaQuery.of(context).size.width,
             child: Text(
-              "${smoke.date}",
-//              "${new DateFormat('HH:mm').format(smoke.date)} hs",
+              "${new DateFormat('HH:mm').format(smoke.date)} hs",
               key: ArchSampleKeys.smokeItemTask(smoke.id),
-              style: Theme.of(context).textTheme.title,
+              style: Theme.of(context).textTheme.headline6,
             ),
           ),
         ),
         subtitle: Text(
-//          "${new DateFormat('MM/dd').format(smoke.date)}",
-          "${smoke.date}",
+          "${new DateFormat('MM/dd').format(smoke.date)}",
           key: ArchSampleKeys.smokeItemNote(smoke.id),
           maxLines: 1,
           overflow: TextOverflow.ellipsis,
-          style: Theme.of(context).textTheme.subhead,
+          style: Theme.of(context).textTheme.subtitle1,
         ),
       ),
     );

@@ -36,7 +36,6 @@ class Smoke {
     }
 
     static Smoke fromEntity(SmokeEntity entity) {
-        debugPrint("Smoke: fromEntity = " + entity.toString());
         return Smoke(
             date: entity.date,
             id: entity.id ?? Uuid().generateV4(),
