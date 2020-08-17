@@ -37,12 +37,17 @@ class QuitBuddyApp extends StatefulWidget {
 
 class QuitBuddyAppState extends State {
   var firebaseUserRepository;
-  var firestoreReactiveSmokesRepository;
+  var fireStoreReactiveSmokesRepository;
+  var smokesBloc;
+  var fireStoreInstance = Firestore.instance;
 
   @override
   Widget build(BuildContext context) {
     firebaseUserRepository = FirebaseUserRepository(FirebaseAuth.instance);
-    firestoreReactiveSmokesRepository = FirestoreReactiveSmokesRepository(Firestore.instance);
+    // This fixes the outdated data problem which was only solved by clearing local storage.
+    fireStoreInstance.settings(persistenceEnabled: false);
+    fireStoreReactiveSmokesRepository = FireStoreReactiveSmokesRepository(fireStoreInstance);
+    smokesBloc = SmokesBloc(smokesRepository: fireStoreReactiveSmokesRepository);
 
     return MaterialApp(
       onGenerateTitle: (context) => FlutterBlocLocalizations.of(context).appTitle,
@@ -63,7 +68,6 @@ class QuitBuddyAppState extends State {
           );
         },
         ArchRoutes.home: (context) {
-          final smokesBloc = SmokesBloc(smokesRepository: firestoreReactiveSmokesRepository);
           return MultiBlocProvider(
             providers: [
               BlocProvider<TabBloc>(

@@ -2,20 +2,19 @@ import 'dart:async';
 
 import 'package:QuitBuddy/smokes_repository_core/src/user_entity.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/foundation.dart';
 import 'package:intl/intl.dart';
 
 import '../../models/session.dart';
 import '../src/reactive_repository.dart';
 import '../src/smoke_entity.dart';
 
-class FirestoreReactiveSmokesRepository implements ReactiveSmokesRepository {
+class FireStoreReactiveSmokesRepository implements ReactiveSmokesRepository {
   static const String users_path = 'users';
   static const String smokes_path = 'smokes';
 
-  final Firestore firestore;
+  final Firestore fireStore;
 
-  FirestoreReactiveSmokesRepository(this.firestore);
+  FireStoreReactiveSmokesRepository(this.fireStore);
 
   @override
   Future<void> addNewSmoke(SmokeEntity smoke) {
@@ -31,7 +30,6 @@ class FirestoreReactiveSmokesRepository implements ReactiveSmokesRepository {
 
   @override
   Future<List<SmokeEntity>> dailySmokes() async {
-    debugPrint("FirestoreReactiveSmokesRepository dailySmokes");
     Stream<List<SmokeEntity>> stream = getCurrentUserSmokesCollection()
         .where("date", isGreaterThanOrEqualTo: DateTime.parse(new DateFormat('yyyyMMdd').format(new DateTime.now())))
         .orderBy("date", descending: true)
@@ -55,11 +53,8 @@ class FirestoreReactiveSmokesRepository implements ReactiveSmokesRepository {
   @override
   Future<List<SmokeEntity>> monthlySmokes() async {
     CollectionReference collectionReference = getCurrentUserSmokesCollection();
-    Stream<List<SmokeEntity>> stream = collectionReference
-        .where("date", isGreaterThanOrEqualTo: DateTime.parse(new DateFormat('yyyyMM01').format(new DateTime.now())))
-        .orderBy("date", descending: true)
-        .snapshots()
-        .map((snapshot) {
+    Stream<List<SmokeEntity>> stream =
+        collectionReference.where("date", isGreaterThanOrEqualTo: DateTime.parse(new DateFormat('yyyyMM01').format(new DateTime.now()))).orderBy("date", descending: true).snapshots().map((snapshot) {
       return snapshot.documents.map((doc) {
         return SmokeEntity(
           doc.documentID,
@@ -77,6 +72,6 @@ class FirestoreReactiveSmokesRepository implements ReactiveSmokesRepository {
 
   CollectionReference getCurrentUserSmokesCollection() {
     UserEntity userEntity = Session.instance.userEntity;
-    return firestore.collection(users_path).document(userEntity.id).collection(smokes_path);
+    return fireStore.collection(users_path).document(userEntity.id).collection(smokes_path);
   }
 }

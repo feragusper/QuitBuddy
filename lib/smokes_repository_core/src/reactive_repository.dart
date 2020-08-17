@@ -19,10 +19,6 @@ abstract class ReactiveSmokesRepository {
 
   Future<List<SmokeEntity>> dailySmokes();
 
-//  Stream<List<SmokeEntity>> dailySmokesAsStream();
-
   Future<List<SmokeEntity>> monthlySmokes();
-
-//  Stream<List<SmokeEntity>> monthlySmokesAsStream();
 
 }
