@@ -26,8 +26,8 @@ class FilteredSmokesBloc extends Bloc<FilteredSmokesEvent, FilteredSmokesState> 
   FilteredSmokesState get initialState {
     return smokesBloc.state is SmokesLoaded
         ? FilteredSmokesLoaded(
-            (smokesBloc.state as SmokesLoaded).monthlySmokes,
-            VisibilityFilter.all,
+            (smokesBloc.state as SmokesLoaded).dailySmokes,
+            VisibilityFilter.daily,
           )
         : FilteredSmokesLoading();
   }
@@ -58,7 +58,7 @@ class FilteredSmokesBloc extends Bloc<FilteredSmokesEvent, FilteredSmokesState> 
   Stream<FilteredSmokesState> _mapSmokesUpdatedToState(
     UpdateSmokes event,
   ) async* {
-    final visibilityFilter = state is FilteredSmokesLoaded ? (state as FilteredSmokesLoaded).activeFilter : VisibilityFilter.all;
+    final visibilityFilter = state is FilteredSmokesLoaded ? (state as FilteredSmokesLoaded).activeFilter : VisibilityFilter.daily;
 
     yield FilteredSmokesLoaded(
       _mapSmokesToFilteredSmokes(

@@ -58,23 +58,14 @@ class FilteredSmokes extends StatelessWidget {
             ));
           },
           onTap: () async {
-            final removedTodo = await Navigator.of(context).push<Smoke>(
+            final removedSmoke = await Navigator.of(context).push<Smoke>(
               MaterialPageRoute(builder: (_) {
                 return DetailsScreen(
                   smoke: smoke,
-                  onDelete: (_) {
-                    smokesBloc.add(DeleteSmoke(smoke));
-                    Scaffold.of(context).showSnackBar(DeleteSmokeSnackBar(
-                      key: ArchSampleKeys.snackbar,
-                      smoke: smoke,
-                      onUndo: () => smokesBloc.add(AddSmoke(smoke)),
-                      localizations: localizations,
-                    ));
-                  },
                 );
               }),
             );
-            if (removedTodo != null) {
+            if (removedSmoke != null) {
               Scaffold.of(context).showSnackBar(DeleteSmokeSnackBar(
                 key: ArchSampleKeys.snackbar,
                 smoke: smoke,

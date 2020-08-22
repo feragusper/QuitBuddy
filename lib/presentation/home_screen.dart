@@ -1,11 +1,12 @@
+import 'package:QuitBuddy/widget/filter_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../blocs/localization.dart';
 import '../blocs/smokes/smokes_bloc.dart';
 import '../blocs/smokes/smokes_event.dart';
 import '../blocs/tab/tab_bloc.dart';
 import '../blocs/tab/tab_event.dart';
-import '../blocs/localization.dart';
 import '../models/app_tab.dart';
 import '../models/smoke.dart';
 import '../smokes_app_core/src/keys.dart';
@@ -22,6 +23,9 @@ class HomeScreen extends StatelessWidget {
         return Scaffold(
           appBar: AppBar(
             title: Text(FlutterBlocLocalizations.of(context).appTitle),
+            actions: [
+              FilterButton(visible: activeTab == AppTab.smokes),
+            ],
           ),
           body: activeTab.contentWidget,
           floatingActionButton: new Visibility(
@@ -33,8 +37,7 @@ class HomeScreen extends StatelessWidget {
                 },
                 child: Icon(Icons.add),
                 tooltip: ArchSampleLocalizations.of(context).addSmoke,
-              )
-          ),
+              )),
           bottomNavigationBar: TabSelector(
             activeTab: activeTab,
             onTabSelected: (tab) => tabBloc.add(UpdateTab(tab)),

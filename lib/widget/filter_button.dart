@@ -15,8 +15,8 @@ class FilterButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final defaultStyle = Theme.of(context).textTheme.body1;
-    final activeStyle = Theme.of(context).textTheme.body1.copyWith(color: Theme.of(context).accentColor);
+    final defaultStyle = Theme.of(context).textTheme.bodyText2;
+    final activeStyle = Theme.of(context).textTheme.bodyText2.copyWith(color: Theme.of(context).accentColor);
     // ignore: close_sinks
     final filteredSmokesBloc = BlocProvider.of<FilteredSmokesBloc>(context);
     return BlocBuilder(
@@ -26,7 +26,7 @@ class FilterButton extends StatelessWidget {
             onSelected: (filter) {
               filteredSmokesBloc.add(UpdateFilter(filter));
             },
-            activeFilter: state is FilteredSmokesLoaded ? state.activeFilter : VisibilityFilter.all,
+            activeFilter: state is FilteredSmokesLoaded ? state.activeFilter : VisibilityFilter.daily,
             activeStyle: activeStyle,
             defaultStyle: defaultStyle,
           );

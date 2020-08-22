@@ -26,6 +26,6 @@ class FilteredSmokesLoaded extends FilteredSmokesState {
 
   @override
   String toString() {
-    return 'FilteredTodosLoaded { filteredTodos: $smokes, activeFilter: $activeFilter }';
+    return 'FilteredSmokesLoaded { filteredSmokes: $smokes, activeFilter: $activeFilter }';
   }
 }
