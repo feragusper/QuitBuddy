@@ -29,14 +29,14 @@ class SmokeItem extends StatelessWidget {
             width: MediaQuery.of(context).size.width,
             child: Text(
               "${new DateFormat('HH:mm').format(smoke.date)} hs",
-              key: ArchSampleKeys.smokeItemTask(smoke.id),
+              key: ArchSampleKeys.smokeItemTime(smoke.id),
               style: Theme.of(context).textTheme.headline6,
             ),
           ),
         ),
         subtitle: Text(
           "${new DateFormat('MM/dd').format(smoke.date)}",
-          key: ArchSampleKeys.smokeItemNote(smoke.id),
+          key: ArchSampleKeys.smokeItemDate(smoke.id),
           maxLines: 1,
           overflow: TextOverflow.ellipsis,
           style: Theme.of(context).textTheme.subtitle1,

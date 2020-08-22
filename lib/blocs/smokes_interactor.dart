@@ -8,18 +8,6 @@ class SmokesInteractor {
 
   SmokesInteractor(this.repository);
 
-//  Stream<List<Smoke>> get monthlySmokes {
-//    return repository.monthlySmokesAsStream().map((entities) {
-//      return entities.map(Smoke.fromEntity).toList();
-//    });
-//  }
-//
-//  Stream<List<Smoke>> get dailySmokes {
-//    return repository.dailySmokesAsStream().map((entities) {
-//      return entities.map(Smoke.fromEntity).toList();
-//    });
-//  }
-
   Future<void> addNewSmoke(Smoke smoke) => repository.addNewSmoke(smoke.toEntity());
 
   Future<void> deleteSmoke(String id) => repository.deleteSmoke([id]);

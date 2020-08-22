@@ -5,7 +5,7 @@ import '../blocs/smokes/smokes_bloc.dart';
 import '../blocs/smokes/smokes_event.dart';
 import '../blocs/tab/tab_bloc.dart';
 import '../blocs/tab/tab_event.dart';
-import '../localization.dart';
+import '../blocs/localization.dart';
 import '../models/app_tab.dart';
 import '../models/smoke.dart';
 import '../smokes_app_core/src/keys.dart';
@@ -15,7 +15,6 @@ import '../widget/tab_selector.dart';
 class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // ignore: close_sinks
     final tabBloc = BlocProvider.of<TabBloc>(context);
     final smokesBloc = BlocProvider.of<SmokesBloc>(context);
     return BlocBuilder<TabBloc, AppTab>(

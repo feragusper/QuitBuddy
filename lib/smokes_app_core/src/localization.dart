@@ -98,13 +98,6 @@ class ArchSampleLocalizations {
         locale: locale.toString(),
       );
 
-  String get emptySmokeError => Intl.message(
-        'Please enter some text',
-        name: 'emptySmokeError',
-        args: [],
-        locale: locale.toString(),
-      );
-
   String get monthly => Intl.message(
         'Monthly',
         name: 'monthlySmokes',
@@ -145,13 +138,6 @@ class ArchSampleLocalizations {
   String get undo => Intl.message(
         'Undo',
         name: 'undo',
-        args: [],
-        locale: locale.toString(),
-      );
-
-  String get deleteSmokeConfirmation => Intl.message(
-        'Delete this smoke?',
-        name: 'deleteSmokeConfirmation',
         args: [],
         locale: locale.toString(),
       );

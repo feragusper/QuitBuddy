@@ -1,17 +1,16 @@
 import 'package:bloc/bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'blocs/filtered_smokes/filtered_smokes_bloc.dart';
+import 'blocs/localization.dart';
 import 'blocs/security/security_bloc.dart';
 import 'blocs/simple_bloc_delegate.dart';
 import 'blocs/smokes/smokes_bloc.dart';
 import 'blocs/smokes/smokes_event.dart';
 import 'blocs/stats/stats_bloc.dart';
 import 'blocs/tab/tab_bloc.dart';
-import 'localization.dart';
 import 'presentation/home_screen.dart';
 import 'presentation/login_screen.dart';
 import 'smokes_app_core/routes.dart';
@@ -37,21 +36,21 @@ class QuitBuddyApp extends StatefulWidget {
 
 class QuitBuddyAppState extends State {
   var firebaseUserRepository;
-  var fireStoreReactiveSmokesRepository;
+  var firestoreInstance = Firestore.instance;
+  var firestoreReactiveSmokesRepository;
   var smokesBloc;
-  var fireStoreInstance = Firestore.instance;
 
   @override
   Widget build(BuildContext context) {
-    firebaseUserRepository = FirebaseUserRepository(FirebaseAuth.instance);
+    firebaseUserRepository = FirebaseUserRepository();
     // This fixes the outdated data problem which was only solved by clearing local storage.
-    fireStoreInstance.settings(persistenceEnabled: false);
-    fireStoreReactiveSmokesRepository = FireStoreReactiveSmokesRepository(fireStoreInstance);
-    smokesBloc = SmokesBloc(smokesRepository: fireStoreReactiveSmokesRepository);
+    firestoreInstance.settings(persistenceEnabled: false);
+    firestoreReactiveSmokesRepository = FirestoreReactiveSmokesRepository(firestoreInstance);
+    smokesBloc = SmokesBloc(smokesRepository: firestoreReactiveSmokesRepository);
 
     return MaterialApp(
       onGenerateTitle: (context) => FlutterBlocLocalizations.of(context).appTitle,
-      theme: ArchSampleTheme.theme,
+      theme: QuitBuddyTheme.theme,
       localizationsDelegates: [
         ArchSampleLocalizationsDelegate(),
         FlutterBlocLocalizationsDelegate(),

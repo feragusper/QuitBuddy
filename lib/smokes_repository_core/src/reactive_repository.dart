@@ -20,5 +20,4 @@ abstract class ReactiveSmokesRepository {
   Future<List<SmokeEntity>> dailySmokes();
 
   Future<List<SmokeEntity>> monthlySmokes();
-
 }

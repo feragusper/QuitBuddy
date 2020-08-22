@@ -14,15 +14,15 @@ class ArchSampleKeys {
   // Smokes
   static const smokeList = Key('__smokeList__');
   static const smokesLoading = Key('__smokesLoading__');
-  static final smokeItem = (String id) => Key('SmokeItem__${id}');
-  static final smokeItemTask = (String id) => Key('SmokeItem__${id}__Task');
-  static final smokeItemNote = (String id) => Key('SmokeItem__${id}__Note');
+  static final smokeItem = (String id) => Key('SmokeItem__$id');
+  static final smokeItemTime = (String id) => Key('SmokeItem__${id}__Time');
+  static final smokeItemDate = (String id) => Key('SmokeItem__${id}__Date');
 
   // Tabs
   static const tabs = Key('__tabs__');
   static const smokeTab = Key('__smokeTab__');
   static const statsTab = Key('__statsTab__');
-  static const accountTab = Key('__profileTab__');
+  static const accountTab = Key('__accountTab__');
 
   // Filters
   static const filterButton = Key('__filterButton__');
@@ -39,6 +39,6 @@ class ArchSampleKeys {
   // Details Screen
   static const deleteSmokeButton = Key('__deleteSmokeFab__');
   static const smokeDetailsScreen = Key('__smokeDetailsScreen__');
-  static final detailsSmokeItemTask = Key('DetailsSmoke__Task');
-  static final detailsSmokeItemNote = Key('DetailsSmoke__Note');
+  static final detailsSmokeItemTime = Key('DetailsSmoke__Time');
+  static final detailsSmokeItemDate = Key('DetailsSmoke__Date');
 }

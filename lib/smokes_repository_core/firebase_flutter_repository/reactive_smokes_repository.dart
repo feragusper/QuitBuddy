@@ -8,13 +8,13 @@ import '../../models/session.dart';
 import '../src/reactive_repository.dart';
 import '../src/smoke_entity.dart';
 
-class FireStoreReactiveSmokesRepository implements ReactiveSmokesRepository {
+class FirestoreReactiveSmokesRepository implements ReactiveSmokesRepository {
   static const String users_path = 'users';
   static const String smokes_path = 'smokes';
 
   final Firestore fireStore;
 
-  FireStoreReactiveSmokesRepository(this.fireStore);
+  FirestoreReactiveSmokesRepository(this.fireStore);
 
   @override
   Future<void> addNewSmoke(SmokeEntity smoke) {
