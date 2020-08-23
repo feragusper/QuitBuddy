@@ -36,7 +36,7 @@ class Stats extends StatelessWidget {
                       child: Text(
                         '${state.numMonthly}',
                         key: ArchSampleKeys.statsNumMonthly,
-                        style: Theme.of(context).textTheme.subhead,
+                        style: Theme.of(context).textTheme.subtitle1,
                       ),
                     ),
                     Padding(
