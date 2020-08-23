@@ -6,11 +6,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-        with:
-          flutter-version: '1.20.0-7.2.pre'
-          channel: 'beta'
-      - name: Upgrades flutter
-        run: flutter upgrade
       - name: Update KeyStore password in gradle properties
         run: sed -i 's/#{KEYSTORE_PASS}#/${{ secrets.KEYSTORE_PASS }}/g' android/key.properties
       - name: Update KeyStore key password in gradle properties
@@ -19,6 +14,9 @@ jobs:
         with:
           java-version: '12.x'
       - uses: subosito/flutter-action@v1
+        with:
+          flutter-version: '1.20.0-7.2.pre'
+          channel: 'beta'
       - name: Install dependencies
         run: flutter packages get
       - run: flutter build appbundle
