@@ -6,7 +6,8 @@ A Flutter application to control the cigarette problem.
 
 Follow Us
 ---------
- - [Google Play] (https://play.google.com/store/apps/details?id=com.feragusper.QuitBuddy)
+ - [Google Play](https://play.google.com/store/apps/details?id=com.feragusper.QuitBuddy)
+ - [Web](https://quit-buddy.firebaseapp.com/)
 
 Support
 -------
