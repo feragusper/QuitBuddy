@@ -1,10 +1,10 @@
 import 'dart:async';
 
 import 'package:QuitBuddy/models/session.dart';
+import 'package:QuitBuddy/smokes_repository_core/user_repository.dart';
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 
-import '../../smokes_repository_core/src/user_repository.dart';
 import 'security_event.dart';
 import 'security_state.dart';
 

@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import '../models/smoke.dart';
-import '../smokes_repository_core/src/reactive_repository.dart';
+import '../smokes_repository_core/reactive_repository.dart';
 
 class SmokesInteractor {
   final ReactiveSmokesRepository repository;

@@ -1,7 +1,7 @@
 
 import 'package:equatable/equatable.dart';
 
-import '../../smokes_repository_core/src/user_entity.dart';
+import '../../smokes_repository_core/user_entity.dart';
 
 class SecurityState extends Equatable {
     const SecurityState();

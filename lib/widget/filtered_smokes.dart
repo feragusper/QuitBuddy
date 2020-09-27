@@ -10,8 +10,8 @@ import '../blocs/smokes/smokes_bloc.dart';
 import '../blocs/smokes/smokes_event.dart';
 import '../models/smoke.dart';
 import '../presentation/details_screen.dart';
-import '../smokes_app_core/src/keys.dart';
-import '../smokes_app_core/src/localization.dart';
+import '../smokes_app_core/keys.dart';
+import '../smokes_app_core/localization.dart';
 import 'delete_smoke_snack_bar.dart';
 import 'loading_indicator.dart';
 import 'smoke_item.dart';
@@ -61,7 +61,7 @@ class FilteredSmokes extends StatelessWidget {
             final removedSmoke = await Navigator.of(context).push<Smoke>(
               MaterialPageRoute(builder: (_) {
                 return DetailsScreen(
-                  smoke: smoke,
+                  smoke: smoke, onDelete: null,
                 );
               }),
             );

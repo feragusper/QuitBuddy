@@ -5,8 +5,8 @@ import '../blocs/filtered_smokes/filtered_smokes_bloc.dart';
 import '../blocs/filtered_smokes/filtered_smokes_event.dart';
 import '../blocs/filtered_smokes/filtered_smokes_state.dart';
 import '../models/visibility_filter.dart';
-import '../smokes_app_core/src/keys.dart';
-import '../smokes_app_core/src/localization.dart';
+import '../smokes_app_core/keys.dart';
+import '../smokes_app_core/localization.dart';
 
 class FilterButton extends StatelessWidget {
   final bool visible;

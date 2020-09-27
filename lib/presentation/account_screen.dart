@@ -9,8 +9,8 @@ import '../blocs/security/security_event.dart';
 import '../blocs/security/security_state.dart';
 import '../models/session.dart';
 import '../smokes_app_core/routes.dart';
-import '../smokes_app_core/src/keys.dart';
-import '../smokes_app_core/src/localization.dart';
+import '../smokes_app_core/keys.dart';
+import '../smokes_app_core/localization.dart';
 
 class Account extends StatelessWidget {
   Account({Key key}) : super(key: key);

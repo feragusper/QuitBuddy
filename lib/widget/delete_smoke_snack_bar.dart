@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../models/smoke.dart';
-import '../smokes_app_core/src/localization.dart';
+import '../smokes_app_core/localization.dart';
 
 class DeleteSmokeSnackBar extends SnackBar {
   final ArchSampleLocalizations localizations;

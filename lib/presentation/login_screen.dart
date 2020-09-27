@@ -6,7 +6,7 @@ import '../blocs/security/security_event.dart';
 import '../blocs/security/security_state.dart';
 import '../models/session.dart';
 import '../smokes_app_core/routes.dart';
-import '../smokes_app_core/src/keys.dart';
+import '../smokes_app_core/keys.dart';
 import '../widget/error.dart';
 import '../widget/loading_indicator.dart';
 

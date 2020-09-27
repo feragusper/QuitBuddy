@@ -9,8 +9,8 @@ import '../blocs/tab/tab_bloc.dart';
 import '../blocs/tab/tab_event.dart';
 import '../models/app_tab.dart';
 import '../models/smoke.dart';
-import '../smokes_app_core/src/keys.dart';
-import '../smokes_app_core/src/localization.dart';
+import '../smokes_app_core/keys.dart';
+import '../smokes_app_core/localization.dart';
 import '../widget/tab_selector.dart';
 
 class HomeScreen extends StatelessWidget {

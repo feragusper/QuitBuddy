@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../presentation/account.dart';
-import '../presentation/stats.dart';
-import '../smokes_app_core/src/keys.dart';
-import '../smokes_app_core/src/localization.dart';
+import '../presentation/account_screen.dart';
+import '../presentation/stats_screen.dart';
+import '../smokes_app_core/keys.dart';
+import '../smokes_app_core/localization.dart';
 import '../widget/filtered_smokes.dart';
 
 enum AppTab { smokes, stats, account }

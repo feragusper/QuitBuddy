@@ -23,18 +23,6 @@ class AddSmoke extends SmokesEvent {
 
 class LoadSmokes extends SmokesEvent {}
 
-class UpdateSmoke extends SmokesEvent {
-  final Smoke updatedSmoke;
-
-  const UpdateSmoke(this.updatedSmoke);
-
-  @override
-  List<Object> get props => [updatedSmoke];
-
-  @override
-  String toString() => 'UpdateSmoke { updatedSmoke: $updatedSmoke }';
-}
-
 class DeleteSmoke extends SmokesEvent {
   final Smoke smoke;
 

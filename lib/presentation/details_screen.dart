@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 import '../models/smoke.dart';
-import '../smokes_app_core/src/keys.dart';
-import '../smokes_app_core/src/localization.dart';
+import '../smokes_app_core/keys.dart';
+import '../smokes_app_core/localization.dart';
 
 class DetailsScreen extends StatelessWidget {
   final Smoke smoke;

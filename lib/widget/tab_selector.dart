@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../models/app_tab.dart';
-import '../smokes_app_core/src/keys.dart';
+import '../smokes_app_core/keys.dart';
 
 class TabSelector extends StatelessWidget {
   final AppTab activeTab;

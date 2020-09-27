@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 import '../models/smoke.dart';
-import '../smokes_app_core/src/keys.dart';
+import '../smokes_app_core/keys.dart';
 
 class SmokeItem extends StatelessWidget {
   final DismissDirectionCallback onDismissed;

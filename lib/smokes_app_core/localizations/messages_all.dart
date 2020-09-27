@@ -12,6 +12,4 @@ Map<String, LibraryLoader> _deferredLibraries = {
 Future initializeMessages(String localeName) async {
   var lib = _deferredLibraries[Intl.canonicalizedLocale(localeName)];
   await (lib == null ? Future.value(false) : lib());
-//  initializeInternalMessageLookup(() => CompositeMessageLookup());
-//  messageLookup.addLocale(localeName, _findGeneratedMessagesFor);
 }

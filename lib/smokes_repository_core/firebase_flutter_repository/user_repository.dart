@@ -3,8 +3,8 @@ import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
-import '../src/user_entity.dart';
-import '../src/user_repository.dart';
+import '../user_entity.dart';
+import '../user_repository.dart';
 
 class FirebaseUserRepository implements UserRepository {
     final FirebaseAuth auth = FirebaseAuth.instance;

@@ -5,7 +5,7 @@ import 'package:flutter/foundation.dart';
 import 'package:meta/meta.dart';
 
 import '../../models/smoke.dart';
-import '../../smokes_repository_core/src/reactive_repository.dart';
+import '../../smokes_repository_core/reactive_repository.dart';
 import 'smokes_event.dart';
 import 'smokes_state.dart';
 
@@ -24,8 +24,6 @@ class SmokesBloc extends Bloc<SmokesEvent, SmokesState> {
       yield* _mapLoadSmokesToState();
     } else if (event is AddSmoke) {
       yield* _mapAddSmokeToState(event);
-    } else if (event is UpdateSmoke) {
-//      yield* _mapUpdateSmokeToState(event);
     } else if (event is DeleteSmoke) {
       yield* _mapDeleteSmokeToState(event);
     }
@@ -33,9 +31,14 @@ class SmokesBloc extends Bloc<SmokesEvent, SmokesState> {
 
   Stream<SmokesState> _mapLoadSmokesToState() async* {
     try {
-      final monthlySmokes = await smokesRepository.monthlySmokes();
-      final dailySmokes = await smokesRepository.dailySmokes();
+      // final monthlySmokes = await smokesRepository.monthlySmokes();
+      // final dailySmokes = await smokesRepository.dailySmokes();
       final smokes = await smokesRepository.smokes();
+
+      var now = DateTime.now();
+      final dailySmokes = smokes.where((element) => element.date.isSameDay(now));
+      final monthlySmokes = smokes.where((element) => element.date.isSameMonth(now));
+
       yield SmokesLoaded(
         smokes.map(Smoke.fromEntity).toList(),
         monthlySmokes.map(Smoke.fromEntity).toList(),
@@ -48,7 +51,8 @@ class SmokesBloc extends Bloc<SmokesEvent, SmokesState> {
 
   Stream<SmokesState> _mapAddSmokeToState(AddSmoke event) async* {
     if (state is SmokesLoaded) {
-      yield SmokesLoaded(List<Smoke>.from((state as SmokesLoaded).totalSmokes)..insert(0, event.smoke), List<Smoke>.from((state as SmokesLoaded).monthlySmokes)..insert(0, event.smoke), List<Smoke>.from((state as SmokesLoaded).dailySmokes)..insert(0, event.smoke));
+      yield SmokesLoaded(List<Smoke>.from((state as SmokesLoaded).totalSmokes)..insert(0, event.smoke), List<Smoke>.from((state as SmokesLoaded).monthlySmokes)..insert(0, event.smoke),
+          List<Smoke>.from((state as SmokesLoaded).dailySmokes)..insert(0, event.smoke));
       await _addSmoke(event.smoke);
     }
   }

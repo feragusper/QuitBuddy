@@ -14,8 +14,8 @@ import 'blocs/tab/tab_bloc.dart';
 import 'presentation/home_screen.dart';
 import 'presentation/login_screen.dart';
 import 'smokes_app_core/routes.dart';
-import 'smokes_app_core/src/localization.dart';
-import 'smokes_app_core/src/theme.dart';
+import 'smokes_app_core/localization.dart';
+import 'smokes_app_core/theme.dart';
 import 'smokes_repository_core/firebase_flutter_repository/reactive_smokes_repository.dart';
 import 'smokes_repository_core/firebase_flutter_repository/user_repository.dart';
 

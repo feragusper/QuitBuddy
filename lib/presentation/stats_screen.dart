@@ -6,7 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../bloc_library_keys.dart';
 import '../blocs/stats/stats_bloc.dart';
 import '../blocs/stats/stats_state.dart';
-import '../smokes_app_core/src/keys.dart';
+import '../smokes_app_core/keys.dart';
 import '../widget/loading_indicator.dart';
 
 class Stats extends StatelessWidget {

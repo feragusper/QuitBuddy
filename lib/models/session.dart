@@ -1,4 +1,4 @@
-import '../smokes_repository_core/src/user_entity.dart';
+import '../smokes_repository_core/user_entity.dart';
 
 class Session {
   UserEntity userEntity;

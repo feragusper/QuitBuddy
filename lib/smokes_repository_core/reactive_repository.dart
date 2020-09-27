@@ -17,10 +17,6 @@ abstract class ReactiveSmokesRepository {
 
   Future<void> deleteSmoke(List<String> idList);
 
-  Future<List<SmokeEntity>> dailySmokes();
-
-  Future<List<SmokeEntity>> monthlySmokes();
-
   Future<List<SmokeEntity>> smokes();
 
   Future<int> totalSmokesCount();
