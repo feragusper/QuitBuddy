@@ -48,30 +48,30 @@ class Account extends StatelessWidget {
             padding: EdgeInsets.only(bottom: 8.0),
             child: Text(
               ArchSampleLocalizations.of(context).name,
-              style: Theme.of(context).textTheme.title,
+              style: Theme.of(context).textTheme.headline6,
             ),
           ),
           Padding(
             padding: EdgeInsets.only(bottom: 24.0),
             child: Text(
               Session.instance.userEntity.displayName,
-              key: ArchSampleKeys.statsNumDaily,
-              style: Theme.of(context).textTheme.subhead,
+              key: ArchSampleKeys.statsDailySmokes,
+              style: Theme.of(context).textTheme.subtitle1,
             ),
           ),
           Padding(
             padding: EdgeInsets.only(bottom: 8.0),
             child: Text(
               ArchSampleLocalizations.of(context).email,
-              style: Theme.of(context).textTheme.title,
+              style: Theme.of(context).textTheme.headline6,
             ),
           ),
           Padding(
             padding: EdgeInsets.only(bottom: 24.0),
             child: Text(
               Session.instance.userEntity.email,
-              key: ArchSampleKeys.statsNumMonthly,
-              style: Theme.of(context).textTheme.subhead,
+              key: ArchSampleKeys.statsMonthlySmokes,
+              style: Theme.of(context).textTheme.subtitle1,
             ),
           ),
           Padding(

@@ -35,7 +35,9 @@ class SmokesBloc extends Bloc<SmokesEvent, SmokesState> {
     try {
       final monthlySmokes = await smokesRepository.monthlySmokes();
       final dailySmokes = await smokesRepository.dailySmokes();
+      final smokes = await smokesRepository.smokes();
       yield SmokesLoaded(
+        smokes.map(Smoke.fromEntity).toList(),
         monthlySmokes.map(Smoke.fromEntity).toList(),
         dailySmokes.map(Smoke.fromEntity).toList(),
       );
@@ -46,7 +48,7 @@ class SmokesBloc extends Bloc<SmokesEvent, SmokesState> {
 
   Stream<SmokesState> _mapAddSmokeToState(AddSmoke event) async* {
     if (state is SmokesLoaded) {
-      yield SmokesLoaded(List<Smoke>.from((state as SmokesLoaded).monthlySmokes)..insert(0, event.smoke), List<Smoke>.from((state as SmokesLoaded).dailySmokes)..insert(0, event.smoke));
+      yield SmokesLoaded(List<Smoke>.from((state as SmokesLoaded).totalSmokes)..insert(0, event.smoke), List<Smoke>.from((state as SmokesLoaded).monthlySmokes)..insert(0, event.smoke), List<Smoke>.from((state as SmokesLoaded).dailySmokes)..insert(0, event.smoke));
       await _addSmoke(event.smoke);
     }
   }

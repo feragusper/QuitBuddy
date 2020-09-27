@@ -9,8 +9,8 @@ import '../src/reactive_repository.dart';
 import '../src/smoke_entity.dart';
 
 class FirestoreReactiveSmokesRepository implements ReactiveSmokesRepository {
-  static const String users_path = 'users';
-  static const String smokes_path = 'smokes';
+  static const String USERS_PATH = 'users';
+  static const String SMOKES_PATH = 'smokes';
 
   final Firestore fireStore;
 
@@ -70,8 +70,32 @@ class FirestoreReactiveSmokesRepository implements ReactiveSmokesRepository {
     return null;
   }
 
+  @override
+  Future<List<SmokeEntity>> smokes() async {
+    CollectionReference collectionReference = getCurrentUserSmokesCollection();
+    Stream<List<SmokeEntity>> stream = collectionReference.orderBy("date", descending: true).snapshots().map((snapshot) {
+      return snapshot.documents.map((doc) {
+        return SmokeEntity(
+          doc.documentID,
+          (doc['date'] as Timestamp).toDate(),
+        );
+      }).toList();
+    });
+
+    await for (List<SmokeEntity> value in stream) {
+      return value;
+    }
+
+    return null;
+  }
+
+  @override
+  Future<int> totalSmokesCount() async {
+    return getCurrentUserSmokesCollection().snapshots().length;
+  }
+
   CollectionReference getCurrentUserSmokesCollection() {
     UserEntity userEntity = Session.instance.userEntity;
-    return fireStore.collection(users_path).document(userEntity.id).collection(smokes_path);
+    return fireStore.collection(USERS_PATH).document(userEntity.id).collection(SMOKES_PATH);
   }
 }

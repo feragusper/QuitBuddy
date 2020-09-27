@@ -15,7 +15,7 @@ class StatsBloc extends Bloc<StatsEvent, StatsState> {
   StatsBloc({@required this.smokesBloc}) {
     smokesSubscription = smokesBloc.listen((state) {
       if (state is SmokesLoaded) {
-        add(UpdateStats(state.monthlySmokes, state.dailySmokes));
+        add(UpdateStats(state.totalSmokes, state.monthlySmokes, state.dailySmokes));
       }
     });
   }
@@ -26,9 +26,11 @@ class StatsBloc extends Bloc<StatsEvent, StatsState> {
   @override
   Stream<StatsState> mapEventToState(StatsEvent event) async* {
     if (event is UpdateStats) {
-      var numDaily = event.dailySmokes.length;
-      var numMonthly = event.monthlySmokes.length;
-      yield StatsLoaded(numDaily, numMonthly);
+      var dailySmokes = event.dailySmokes.length;
+      var monthlySmokes = event.monthlySmokes.length;
+      var totalSmokes = event.totalSmokes.length;
+      var dailyAverage = totalSmokes ~/ DateTime.now().difference(event.totalSmokes.last.date).inDays;
+      yield StatsLoaded(dailySmokes, monthlySmokes, totalSmokes, dailyAverage);
     }
   }
 

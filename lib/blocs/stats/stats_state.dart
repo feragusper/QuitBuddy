@@ -10,16 +10,18 @@ abstract class StatsState extends Equatable {
 class StatsLoading extends StatsState {}
 
 class StatsLoaded extends StatsState {
-  final int numDaily;
-  final int numMonthly;
+  final int dailySmokes;
+  final int monthlySmokes;
+  final int totalSmokes;
+  final int dailyAverage;
 
-  const StatsLoaded(this.numDaily, this.numMonthly);
+  const StatsLoaded(this.dailySmokes, this.monthlySmokes, this.totalSmokes, this.dailyAverage);
 
   @override
-  List<Object> get props => [numDaily, numMonthly];
+  List<Object> get props => [dailySmokes, monthlySmokes, totalSmokes];
 
   @override
   String toString() {
-    return 'StatsLoaded { numDaily: $numDaily, numMonthly: $numMonthly }';
+    return 'StatsLoaded { dailySmokes: $dailySmokes, monthlySmokes: $monthlySmokes, totalSmokes: $totalSmokes }';
   }
 }

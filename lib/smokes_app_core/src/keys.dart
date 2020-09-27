@@ -33,8 +33,10 @@ class ArchSampleKeys {
   // Stats
   static const statsCounter = Key('__statsCounter__');
   static const statsLoading = Key('__statsLoading__');
-  static const statsNumDaily = Key('__statsDailyItems__');
-  static const statsNumMonthly = Key('__statsMonthlyItems__');
+  static const statsDailySmokes = Key('__statsDailySmokes__');
+  static const statsMonthlySmokes = Key('__statsMonthlySmokes__');
+  static const statsTotalSmokes = Key('__statsTotalSmokes__');
+  static const statsDailyAverageSmokes = Key('__statsDailyAverageSmokes__');
 
   // Details Screen
   static const deleteSmokeButton = Key('__deleteSmokeFab__');

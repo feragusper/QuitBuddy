@@ -34,17 +34,33 @@ class Stats extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.only(bottom: 24.0),
                       child: Text(
-                        '${state.numMonthly}',
-                        key: ArchSampleKeys.statsNumMonthly,
+                        '${state.totalSmokes}',
+                        key: ArchSampleKeys.statsTotalSmokes,
                         style: Theme.of(context).textTheme.subtitle1,
                       ),
                     ),
                     Padding(
                       padding: EdgeInsets.only(bottom: 24.0),
                       child: Text(
-                        '${state.numDaily}',
-                        key: ArchSampleKeys.statsNumDaily,
-                        style: Theme.of(context).textTheme.subhead,
+                        '${state.monthlySmokes}',
+                        key: ArchSampleKeys.statsMonthlySmokes,
+                        style: Theme.of(context).textTheme.subtitle1,
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(bottom: 24.0),
+                      child: Text(
+                        '${state.dailySmokes}',
+                        key: ArchSampleKeys.statsDailySmokes,
+                        style: Theme.of(context).textTheme.subtitle1,
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(bottom: 24.0),
+                      child: Text(
+                        '${state.dailyAverage}',
+                        key: ArchSampleKeys.statsDailyAverageSmokes,
+                        style: Theme.of(context).textTheme.subtitle1,
                       ),
                     )
                   ],

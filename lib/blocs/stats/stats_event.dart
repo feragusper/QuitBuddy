@@ -7,14 +7,15 @@ abstract class StatsEvent extends Equatable {
 }
 
 class UpdateStats extends StatsEvent {
+  final List<Smoke> totalSmokes;
   final List<Smoke> monthlySmokes;
   final List<Smoke> dailySmokes;
 
-  const UpdateStats(this.monthlySmokes, this.dailySmokes);
+  const UpdateStats(this.totalSmokes, this.monthlySmokes, this.dailySmokes);
 
   @override
   List<Object> get props => [monthlySmokes, dailySmokes];
 
   @override
-  String toString() => 'UpdateStats { monthlySmokes: $monthlySmokes, dailySmokes: $dailySmokes }';
+  String toString() => 'UpdateStats { totalSmokes: $totalSmokes, monthlySmokes: $monthlySmokes, dailySmokes: $dailySmokes }';
 }
