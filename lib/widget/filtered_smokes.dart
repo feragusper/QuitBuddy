@@ -2,7 +2,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../bloc_library_keys.dart';
 import '../blocs/filtered_smokes/filtered_smokes_bloc.dart';
 import '../blocs/filtered_smokes/filtered_smokes_state.dart';
@@ -61,7 +60,8 @@ class FilteredSmokes extends StatelessWidget {
             final removedSmoke = await Navigator.of(context).push<Smoke>(
               MaterialPageRoute(builder: (_) {
                 return DetailsScreen(
-                  smoke: smoke, onDelete: null,
+                  smoke: smoke,
+                  onDelete: null,
                 );
               }),
             );

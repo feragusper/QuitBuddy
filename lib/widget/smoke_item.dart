@@ -28,7 +28,7 @@ class SmokeItem extends StatelessWidget {
           child: Container(
             width: MediaQuery.of(context).size.width,
             child: Text(
-              "${new DateFormat('HH:mm').format(smoke.date)} hs",
+              "${smoke.smokeType.toString().split(".").last} - ${new DateFormat('HH:mm').format(smoke.date)} hs",
               key: ArchSampleKeys.smokeItemTime(smoke.id),
               style: Theme.of(context).textTheme.headline6,
             ),

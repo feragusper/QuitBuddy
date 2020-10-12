@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:QuitBuddy/models/smoke.dart';
 import 'package:QuitBuddy/smokes_repository_core/user_entity.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
@@ -32,10 +33,7 @@ class FirestoreReactiveSmokesRepository implements ReactiveSmokesRepository {
     CollectionReference collectionReference = getCurrentUserSmokesCollection();
     Stream<List<SmokeEntity>> stream = collectionReference.orderBy("date", descending: true).snapshots().map((snapshot) {
       return snapshot.documents.map((doc) {
-        return SmokeEntity(
-          doc.documentID,
-          (doc['date'] as Timestamp).toDate(),
-        );
+        return SmokeEntity(doc.documentID, (doc['date'] as Timestamp).toDate(), SmokeType.values.firstWhere((element) => element.toString() == "SmokeType." + doc['smokeType']));
       }).toList();
     });
 

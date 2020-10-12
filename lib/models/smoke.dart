@@ -8,40 +8,46 @@ import '../smokes_app_core/uuid.dart';
 class Smoke {
   final String id;
   final DateTime date;
+  final SmokeType smokeType;
 
-  Smoke({DateTime date, String id})
+  Smoke({DateTime date, String id, SmokeType smokeType})
       : date = date ?? '',
-        id = id ?? Uuid().generateV4();
+        id = id ?? Uuid().generateV4(),
+        smokeType = smokeType ?? SmokeType.INDUSTRIAL;
 
-  Smoke copyWith({String id, DateTime date}) {
+  Smoke copyWith({String id, DateTime date, SmokeType smokeType}) {
     return Smoke(
       id: id ?? this.id,
       date: date ?? this.date,
+      smokeType: smokeType ?? this.smokeType,
     );
   }
 
   @override
-  int get hashCode => date.hashCode ^ id.hashCode;
+  int get hashCode => date.hashCode ^ id.hashCode ^ smokeType.hashCode;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is Smoke && runtimeType == other.runtimeType && date == other.date && id == other.id;
+  bool operator ==(Object other) => identical(this, other) || other is Smoke && runtimeType == other.runtimeType && date == other.date && id == other.id && smokeType == other.smokeType;
 
   @override
   String toString() {
-    return 'Smoke{date: $date, id: $id}';
+    return 'Smoke{date: $date, id: $id, smokeType: $smokeType}';
   }
 
   SmokeEntity toEntity() {
-    return SmokeEntity(id, date);
+    return SmokeEntity(id, date, smokeType);
   }
 
   static Smoke fromEntity(SmokeEntity entity) {
     return Smoke(
       date: entity.date,
       id: entity.id ?? Uuid().generateV4(),
+      smokeType: entity.smokeType ?? SmokeType.INDUSTRIAL,
     );
   }
 }
+
+enum SmokeType { HOMEMADE, INDUSTRIAL }
 
 extension DateTimeComparable on DateTime {
   bool isSameDay(DateTime other) {
@@ -49,6 +55,6 @@ extension DateTimeComparable on DateTime {
   }
 
   bool isSameMonth(DateTime other) {
-      return this.year == other.year && this.month == other.month;
+    return this.year == other.year && this.month == other.month;
   }
 }
