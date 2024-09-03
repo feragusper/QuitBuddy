@@ -32,7 +32,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Get version.txt
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4.1.7
         with:
           name: gitversion
       - name: Create new file without newline char from version.txt
@@ -77,7 +77,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Get appbundle from artifacts
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4.1.7
         with:
           name: appbundle
       - name: Release app to beta track
